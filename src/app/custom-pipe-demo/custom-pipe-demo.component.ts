@@ -20,6 +20,7 @@ export class CustomPipeDemoComponent {
   // Separate Pipe Example
   public textToSeparate: string = '';
   public separator: string = '-';
+  public skipSpaces: boolean = false;
 
   ngOnInit(): void {
     // Initialize data for pure pipe example
@@ -42,7 +43,7 @@ export class CustomPipeDemoComponent {
     ];
 
     // Initialize data for separate pipe example
-    this.textToSeparate = 'Hello World';
+    this.textToSeparate = 'Hello Angular World; Welcome to Angular';
   }
 
   // Pure Pipe Methods

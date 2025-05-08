@@ -257,12 +257,21 @@
                           name="textToSeparate" placeholder="Enter text to separate">
                       </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                       <label for="separator" class="form-label">Separator</label>
                       <div class="input-group">
                         <span class="input-group-text"><i class="bi bi-dash"></i></span>
                         <input type="text" class="form-control" id="separator" [(ngModel)]="separator" name="separator"
                           placeholder="Enter separator">
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-check mt-4">
+                        <input class="form-check-input" type="checkbox" id="skipSpaces" [(ngModel)]="skipSpaces"
+                          name="skipSpaces">
+                        <label class="form-check-label" for="skipSpaces">
+                          Skip Spaces
+                        </label>
                       </div>
                     </div>
                   </form>
@@ -283,7 +292,7 @@
                         <div class="col-md-6">
                           <p class="mb-2">
                             <i class="bi bi-arrow-right me-2 text-primary"></i>
-                            Separated: <strong>{{ textToSeparate | separate:separator }}</strong>
+                            Separated: <strong>{{ textToSeparate | separate:separator:skipSpaces }}</strong>
                           </p>
                         </div>
                       </div>
