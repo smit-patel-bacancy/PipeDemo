@@ -2,96 +2,294 @@
   <div class="row">
     <div class="col-12">
       <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-          <h2 class="h4 mb-0">Custom Pipe in Angular</h2>
+        <div class="card-header bg-primary text-white d-flex align-items-center">
+          <i class="bi bi-tools me-2"></i>
+          <h2 class="h4 mb-0">Custom Pipes in Angular</h2>
         </div>
         <div class="card-body">
-          <!-- Input Form -->
-          <div class="card mb-4">
-            <div class="card-header bg-light d-flex align-items-center">
-              <i class="bi bi-plus-circle me-2 text-primary"></i>
-              <h3 class="h5 mb-0">Add New Item</h3>
-            </div>
-            <div class="card-body">
-              <form class="row g-3">
-                <div class="col-md-6">
-                  <label for="name" class="form-label">Name</label>
-                  <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" placeholder="Enter name">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <label for="type" class="form-label">Type</label>
-                  <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-tag"></i></span>
-                    <input type="text" class="form-control" id="type" [(ngModel)]="type" name="type" placeholder="Enter type">
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button type="button" class="btn btn-primary" (click)="onAddData()">
-                    <i class="bi bi-plus-circle me-2"></i>Add to Array
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <!-- Filtered List -->
+          <!-- Pure Pipe Example -->
           <div class="card mb-4">
             <div class="card-header bg-light d-flex align-items-center">
               <i class="bi bi-funnel me-2 text-primary"></i>
-              <h3 class="h5 mb-0">Filtered List</h3>
+              <h3 class="h5 mb-0">Pure Pipe Example (Filter)</h3>
             </div>
             <div class="card-body">
-              <div class="mb-3">
-                <label for="filterType" class="form-label">Filter by Type</label>
-                <div class="input-group">
-                  <span class="input-group-text"><i class="bi bi-search"></i></span>
-                  <input type="text" class="form-control" id="filterType" [(ngModel)]="filterType" name="filterType" placeholder="Enter type to filter">
+              <div class="alert alert-info">
+                <i class="bi bi-info-circle me-2"></i>
+                Pure pipes are only re-evaluated when the input value changes or when the pipe's arguments change.
+              </div>
+
+              <!-- Input Form -->
+              <div class="card mb-4">
+                <div class="card-header bg-light d-flex align-items-center">
+                  <i class="bi bi-plus-circle me-2 text-primary"></i>
+                  <h4 class="h6 mb-0">Add New Item</h4>
+                </div>
+                <div class="card-body">
+                  <form class="row g-3">
+                    <div class="col-md-6">
+                      <label for="name" class="form-label">Name</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                        <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name"
+                          placeholder="Enter name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="type" class="form-label">Type</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-tag"></i></span>
+                        <input type="text" class="form-control" id="type" [(ngModel)]="type" name="type"
+                          placeholder="Enter type">
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="button" class="btn btn-primary" (click)="onAddData()">
+                        <i class="bi bi-plus-circle me-2"></i>Add to Array
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
-              <div class="table-responsive">
-                <table class="table table-hover">
-                  <thead class="table-light">
-                    <tr>
-                      <th><i class="bi bi-person me-2"></i>Name</th>
-                      <th><i class="bi bi-tag me-2"></i>Type</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let data of arrayData | filter:filterType:'type'" class="animate-fade-in">
-                      <td class="fw-medium">{{data.name}}</td>
-                      <td><span class="badge bg-primary">{{data.type}}</span></td>
-                    </tr>
-                  </tbody>
-                </table>
+
+              <!-- Filter Section -->
+              <div class="card mb-4">
+                <div class="card-header bg-light d-flex align-items-center">
+                  <i class="bi bi-search me-2 text-primary"></i>
+                  <h4 class="h6 mb-0">Filter Items</h4>
+                </div>
+                <div class="card-body">
+                  <div class="mb-3">
+                    <label for="filterType" class="form-label">Filter by Type</label>
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-funnel"></i></span>
+                      <input type="text" class="form-control" id="filterType" [(ngModel)]="filterType" name="filterType"
+                        placeholder="Enter type to filter">
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead class="table-light">
+                        <tr>
+                          <th><i class="bi bi-person me-2"></i>Name</th>
+                          <th><i class="bi bi-tag me-2"></i>Type</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of arrayData | filter:filterType:'type'" class="animate-fade-in">
+                          <td class="fw-medium">{{data.name}}</td>
+                          <td><span class="badge bg-primary">{{data.type}}</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Original List -->
-          <div class="card">
+          <!-- Impure Pipe Example -->
+          <div class="card mb-4">
             <div class="card-header bg-light d-flex align-items-center">
-              <i class="bi bi-list-ul me-2 text-primary"></i>
-              <h3 class="h5 mb-0">Original List</h3>
+              <i class="bi bi-arrow-down-up me-2 text-primary"></i>
+              <h3 class="h5 mb-0">Impure Pipe Example (Sort)</h3>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-hover">
-                  <thead class="table-light">
-                    <tr>
-                      <th><i class="bi bi-person me-2"></i>Name</th>
-                      <th><i class="bi bi-tag me-2"></i>Type</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let data of arrayData" class="animate-fade-in">
-                      <td class="fw-medium">{{data.name}}</td>
-                      <td><span class="badge bg-primary">{{data.type}}</span></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="alert alert-info">
+                <i class="bi bi-info-circle me-2"></i>
+                Impure pipes are re-evaluated on every change detection cycle, including changes to the array itself.
+              </div>
+
+              <!-- Add New Item Form -->
+              <div class="card mb-4">
+                <div class="card-header bg-light d-flex align-items-center">
+                  <i class="bi bi-plus-circle me-2 text-primary"></i>
+                  <h4 class="h6 mb-0">Add New Item</h4>
+                </div>
+                <div class="card-body">
+                  <form class="row g-3">
+                    <div class="col-md-6">
+                      <label for="newName" class="form-label">Name</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-person"></i></span>
+                        <input type="text" class="form-control" id="newName" [(ngModel)]="newItem.name" name="newName"
+                          placeholder="Enter name">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="newType" class="form-label">Type</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-tag"></i></span>
+                        <input type="text" class="form-control" id="newType" [(ngModel)]="newItem.type" name="newType"
+                          placeholder="Enter type">
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="button" class="btn btn-primary" (click)="addItem()">
+                        <i class="bi bi-plus-circle me-2"></i>Add Item
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Sort Controls -->
+              <div class="card mb-4">
+                <div class="card-header bg-light d-flex align-items-center">
+                  <i class="bi bi-sort-down me-2 text-primary"></i>
+                  <h4 class="h6 mb-0">Sort Controls</h4>
+                </div>
+                <div class="card-body">
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary" [class.active]="sortProperty === 'name'"
+                      (click)="sortProperty = 'name'">
+                      <i class="bi bi-sort-alpha-down me-2"></i>Sort by Name
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" [class.active]="sortProperty === 'type'"
+                      (click)="sortProperty = 'type'">
+                      <i class="bi bi-sort-alpha-down me-2"></i>Sort by Type
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sorted List -->
+              <div class="card">
+                <div class="card-header bg-light d-flex align-items-center">
+                  <i class="bi bi-list-ul me-2 text-primary"></i>
+                  <h4 class="h6 mb-0">Sorted List</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead class="table-light">
+                        <tr>
+                          <th><i class="bi bi-person me-2"></i>Name</th>
+                          <th><i class="bi bi-tag me-2"></i>Type</th>
+                          <th><i class="bi bi-gear me-2"></i>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of items | sort:sortProperty; let i = index" class="animate-fade-in">
+                          <td class="fw-medium">{{item.name}}</td>
+                          <td><span class="badge bg-primary">{{item.type}}</span></td>
+                          <td>
+                            <button class="btn btn-sm btn-danger" (click)="removeItem(i)">
+                              <i class="bi bi-trash"></i>
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Separate Pipe Example -->
+          <div class="card mb-4">
+            <div class="card-header bg-light d-flex align-items-center">
+              <i class="bi bi-text-paragraph me-2 text-primary"></i>
+              <h3 class="h5 mb-0">Separate Pipe Example (Pure & Standalone)</h3>
+            </div>
+            <div class="card-body">
+              <div class="alert alert-info">
+                <i class="bi bi-info-circle me-2"></i>
+                This pipe adds separators between characters in a string.
+              </div>
+
+              <!-- Static Examples -->
+              <div class="card mb-4">
+                <div class="card-header bg-light d-flex align-items-center">
+                  <i class="bi bi-code-square me-2 text-primary"></i>
+                  <h4 class="h6 mb-0">Static Examples</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead class="table-light">
+                        <tr>
+                          <th><i class="bi bi-code me-2"></i>Expression</th>
+                          <th><i class="bi bi-arrow-right me-2"></i>Result</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><code>'Hello' | separate</code></td>
+                          <td><strong>H-e-l-l-o</strong></td>
+                        </tr>
+                        <tr>
+                          <td><code>'Angular' | separate:'*'</code></td>
+                          <td><strong>A*n*g*u*l*a*r</strong></td>
+                        </tr>
+                        <tr>
+                          <td><code>'TypeScript' | separate:' ' </code></td>
+                          <td><strong>T y p e S c r i p t</strong></td>
+                        </tr>
+                        <tr>
+                          <td><code>'12345' | separate:'.'</code></td>
+                          <td><strong>1.2.3.4.5</strong></td>
+                        </tr>
+                        <tr>
+                          <td><code>'PIPE' | separate:'|'</code></td>
+                          <td><strong>P|I|P|E</strong></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dynamic Demo -->
+              <div class="card">
+                <div class="card-header bg-light d-flex align-items-center">
+                  <i class="bi bi-sliders me-2 text-primary"></i>
+                  <h4 class="h6 mb-0">Dynamic Demo</h4>
+                </div>
+                <div class="card-body">
+                  <form class="row g-3">
+                    <div class="col-md-6">
+                      <label for="textToSeparate" class="form-label">Text to Separate</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-text-paragraph"></i></span>
+                        <input type="text" class="form-control" id="textToSeparate" [(ngModel)]="textToSeparate"
+                          name="textToSeparate" placeholder="Enter text to separate">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="separator" class="form-label">Separator</label>
+                      <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-dash"></i></span>
+                        <input type="text" class="form-control" id="separator" [(ngModel)]="separator" name="separator"
+                          placeholder="Enter separator">
+                      </div>
+                    </div>
+                  </form>
+
+                  <div class="card mt-4">
+                    <div class="card-header bg-light d-flex align-items-center">
+                      <i class="bi bi-arrow-right-circle me-2 text-primary"></i>
+                      <h4 class="h6 mb-0">Result</h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <p class="mb-2">
+                            <i class="bi bi-text-paragraph me-2 text-primary"></i>
+                            Original: <strong>{{ textToSeparate }}</strong>
+                          </p>
+                        </div>
+                        <div class="col-md-6">
+                          <p class="mb-2">
+                            <i class="bi bi-arrow-right me-2 text-primary"></i>
+                            Separated: <strong>{{ textToSeparate | separate:separator }}</strong>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
