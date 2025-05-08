@@ -1,32 +1,71 @@
-<div class="container">
-  <div class="row mt-3">
-    <div class="col-md-12">
-      <h1> Welcome To Angular Pipes Demo </h1>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Angular Pipes Demo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/builtInPipes']" routerLinkActive="active">Built-in Pipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/customPipe']" routerLinkActive="active">Custom Pipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/asyncPipe']" routerLinkActive="active">Async Pipe</a>
+        </li>
+      </ul>
     </div>
-    <div class="col-md-4">
-      <button class="btn btn-info" [routerLink]="['/builtInPipes']" routerLinkActive="router-link-active">BuiltIn
-        Pipes</button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container py-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="card-title text-center mb-4">Welcome to Angular Pipes Demo</h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Built-in Pipes</h5>
+                  <p class="card-text">Explore Angular's built-in pipes for data transformation</p>
+                  <a [routerLink]="['/builtInPipes']" class="btn btn-info">Learn More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Custom Pipes</h5>
+                  <p class="card-text">Create and use custom pipes (Pure & Impure)</p>
+                  <a [routerLink]="['/customPipe']" class="btn btn-info">Learn More</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card h-100">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Async Pipe</h5>
+                  <p class="card-text">Handle asynchronous data with async pipe</p>
+                  <a [routerLink]="['/asyncPipe']" class="btn btn-info">Learn More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-md-4">
-      <button class="btn btn-info" [routerLink]="['/customPipe']" routerLinkActive="router-link-active">Custom Pipe
-        (Pure & Impure)</button>
-    </div>
-    <div class="col-md-4">
-      <button class="btn btn-info" [routerLink]="['/asyncPipe']" routerLinkActive="router-link-active">Async
-        Pipe</button>
-    </div>
-    <br>
-    <br>
-    <hr>
   </div>
 
-  <div class="row mt-3">
-
-    <div>
+  <!-- Router Outlet -->
+  <div class="row">
+    <div class="col-12">
       <router-outlet></router-outlet>
     </div>
-    <!-- <div class="col-md-12 text-center">
-      <img src="../assets/Angular-Pipes.jpg" alt="Angular Pipes" style="width: 50%;">
-    </div> -->
   </div>
 </div>

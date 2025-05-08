@@ -1,4 +1,135 @@
 /* You can add global styles to this file, and also import other style files */
+// Custom Variables
+:root {
+  --primary-gradient: linear-gradient(45deg, #0d6efd, #0dcaf0);
+  --card-hover-transform: translateY(-5px);
+  --card-transition: all 0.3s ease;
+}
+
+// Global Styles
+body {
+  background-color: #f8f9fa;
+}
+
+// Card Styles
+.card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: var(--card-transition);
+  border-radius: 10px;
+  overflow: hidden;
+
+  &:hover {
+    transform: var(--card-hover-transform);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-header {
+    border-bottom: none;
+    padding: 1.25rem;
+
+    &.bg-primary {
+      background: var(--primary-gradient) !important;
+    }
+  }
+}
+
+// Table Styles
+.table {
+  th {
+    font-weight: 600;
+    color: #495057;
+  }
+
+  td {
+    vertical-align: middle;
+  }
+
+  &.table-hover tbody tr:hover {
+    background-color: rgba(13, 202, 240, 0.05);
+  }
+}
+
+// Form Controls
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  padding: 0.75rem 1rem;
+  transition: var(--card-transition);
+
+  &:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 202, 240, 0.25);
+    border-color: #0dcaf0;
+  }
+}
+
+// Buttons
+.btn {
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  transition: var(--card-transition);
+
+  &.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(13, 110, 253, 0.3);
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+// Custom Classes
 .bold {
-  font-weight: bold;
+  font-weight: 600;
+}
+
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.display-4 {
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+// Nav Link Active State
+.nav-link.active {
+  background: var(--primary-gradient) !important;
+  color: white !important;
+  border-radius: 8px;
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0dcaf0;
+  border-radius: 4px;
+
+  &:hover {
+    background: #0d6efd;
+  }
 }

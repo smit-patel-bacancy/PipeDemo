@@ -1,162 +1,258 @@
-<div class="container">
+<div class="container py-4 animate-fade-in">
   <div class="row">
-    <div class="col-md-12">
-      <h2>Built In Pipes in Angular</h2>
-      <hr>
+    <div class="col-12">
+      <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+          <h2 class="h4 mb-0">Built-in Pipes in Angular</h2>
+        </div>
+        <div class="card-body">
+          <!-- Normal Pipes Section -->
+          <div class="card mb-4">
+            <div class="card-header bg-light d-flex align-items-center">
+              <i class="bi bi-code-square me-2 text-primary"></i>
+              <h3 class="h5 mb-0">Normal Pipes</h3>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <tbody>
+                    <tr>
+                      <td class="text-muted" ngNonBindable>{{randomSentence}} :</td>
+                      <td class="fw-medium">{{randomSentence}}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted" ngNonBindable>{{randomSentence | uppercase}} :</td>
+                      <td class="fw-medium text-uppercase">{{randomSentence | uppercase}}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted" ngNonBindable>{{randomSentence | lowercase}} :</td>
+                      <td class="fw-medium text-lowercase">{{randomSentence | lowercase}}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted" ngNonBindable>{{randomSentence | titlecase}} :</td>
+                      <td class="fw-medium text-capitalize">{{randomSentence | titlecase}}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted" ngNonBindable>{{currentDate}} :</td>
+                      <td class="fw-medium">{{currentDate}}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted" ngNonBindable>{{currentDate | date}} :</td>
+                      <td class="fw-medium">{{currentDate | date}}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted" ngNonBindable>{{ jsonVal }} :</td>
+                      <td class="fw-medium">{{ jsonVal }}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted" ngNonBindable>{{ jsonVal | json }} :</td>
+                      <td class="mb-0 bg-light p-2 rounded">{{ jsonVal | json }}</td>
+                      <!-- <td><pre class="mb-0 bg-light p-2 rounded">{{ jsonVal | json }}</pre></td> -->
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
-      <h3>Normal Pipes</h3>
-      <ul>
-        <li>
-          <label class="bold" ngNonBindable>{{randomSentence}} :</label>
-          {{randomSentence}}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{randomSentence | uppercase}} :</label>
-          {{randomSentence | uppercase}}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{randomSentence | lowercase}} :</label>
-          {{randomSentence | lowercase}}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{randomSentence | titlecase}} :</label>
-          {{randomSentence | titlecase}}
-        </li>
+          <!-- Pipes with Parameters Section -->
+          <div class="card mb-4">
+            <div class="card-header bg-light d-flex align-items-center">
+              <i class="bi bi-gear me-2 text-primary"></i>
+              <h3 class="h5 mb-0">Pipes with Parameters</h3>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="card h-100">
+                    <div class="card-header bg-light">
+                      <h4 class="h6 text-muted mb-0">Date Format Examples</h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-sm">
+                          <tbody>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{currentDate | date:'short'}} :</td>
+                              <td class="fw-medium">{{currentDate | date:'short'}}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{currentDate | date:'shortTime'}} :</td>
+                              <td class="fw-medium">{{currentDate | date:'shortTime'}}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{currentDate | date:'fullDate'}} :</td>
+                              <td class="fw-medium">{{currentDate | date:'fullDate'}}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{currentDate | date:'shortDate'}} :</td>
+                              <td class="fw-medium">{{currentDate | date:'shortDate'}}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{currentDate | date:'d/M/y'}} :</td>
+                              <td class="fw-medium">{{currentDate | date:'d/M/y'}}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{currentDate | date:'dd/MM/yyyy'}} :</td>
+                              <td class="fw-medium">{{currentDate | date:'dd/MM/yyyy'}}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{currentDate | date:'dd-MM-yyyy'}} :</td>
+                              <td class="fw-medium">{{currentDate | date:'dd-MM-yyyy'}}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{currentDate | date:'yyyy-MM/dd'}} :</td>
+                              <td class="fw-medium">{{currentDate | date:'yyyy-MM/dd'}}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card h-100">
+                    <div class="card-header bg-light">
+                      <h4 class="h6 text-muted mb-0">Currency & Number Examples</h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-sm">
+                          <tbody>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{ 1234.56 | currency:'INR' }} :</td>
+                              <td class="fw-medium">{{ 1234.56 | currency:'INR' }}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{ 1234.56 | currency:'INR':'code' }} :</td>
+                              <td class="fw-medium">{{ 1234.56 | currency:'INR':'code' }}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{ 1234.56 | currency:'INR':'symbol' }} :</td>
+                              <td class="fw-medium">{{ 1234.56 | currency:'INR':'symbol' }}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{ 3.14159265 | number: '3.1-2' }} :</td>
+                              <td class="fw-medium">{{ 3.14159265 | number: '3.1-2' }}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{ 3.14159265 | number: '1.4-4' }} :</td>
+                              <td class="fw-medium">{{ 3.14159265 | number: '1.4-4' }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-        <br>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate}} :</label> {{currentDate}}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date}} :</label>
-          {{currentDate | date}}
-        </li>
-        <br>
-        <li>
-          <label class="bold" ngNonBindable>{{ jsonVal }} :</label>
-          {{ jsonVal }}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{ jsonVal | json }} :</label>
-          {{ jsonVal | json }}
-        </li>
+              <div class="row mt-4">
+                <div class="col-md-6">
+                  <div class="card h-100">
+                    <div class="card-header bg-light">
+                      <h4 class="h6 text-muted mb-0">Percent Examples</h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-sm">
+                          <tbody>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{ 0.123456 | percent }} :</td>
+                              <td class="fw-medium">{{ 0.123456 | percent }}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{ 0.123456 | percent: '2.1-2' }} :</td>
+                              <td class="fw-medium">{{ 0.123456 | percent: '2.1-2' }}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{ 0.123456 | percent : "10.4-4" }} :</td>
+                              <td class="fw-medium">{{ 0.123456 | percent : "10.4-4" }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="card h-100">
+                    <div class="card-header bg-light">
+                      <h4 class="h6 text-muted mb-0">Slice Examples</h4>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-sm">
+                          <tbody>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{ [1,2,3,4,5,6] | slice:1:3 }} :</td>
+                              <td class="fw-medium">{{ [1,2,3,4,5,6] | slice:1:3 }}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{ [1,2,3,4,5,6] | slice:2 }} :</td>
+                              <td class="fw-medium">{{ [1,2,3,4,5,6] | slice:2 }}</td>
+                            </tr>
+                            <tr>
+                              <td class="text-muted small" ngNonBindable>{{ [1,2,3,4,5,6] | slice:2:-1 }} :</td>
+                              <td class="fw-medium">{{ [1,2,3,4,5,6] | slice:2:-1 }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      </ul>
+          <!-- Chaining Pipes Section -->
+          <div class="card mb-4">
+            <div class="card-header bg-light d-flex align-items-center">
+              <i class="bi bi-link-45deg me-2 text-primary"></i>
+              <h3 class="h5 mb-0">Chaining Multiple Pipes</h3>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td class="text-muted" ngNonBindable>{{currentDate | date:'fullDate'}} :</td>
+                      <td class="fw-medium">{{currentDate | date:'fullDate'}}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted" ngNonBindable>{{currentDate | date:'fullDate' | uppercase}} :</td>
+                      <td class="fw-medium text-uppercase">{{currentDate | date:'fullDate' | uppercase}}</td>
+                    </tr>
+                    <tr>
+                      <td class="text-muted" ngNonBindable>{{currentDate | date:'fullDate' | lowercase}} :</td>
+                      <td class="fw-medium text-lowercase">{{currentDate | date:'fullDate' | lowercase}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
 
-      <hr>
-      <h3>Pipes with Paramters</h3>
-      <ul>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date:'short'}} :</label>
-          {{currentDate | date:'short'}}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date:'shortTime'}} :</label>
-          {{currentDate | date:'shortTime'}}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date:'fullDate'}} :</label>
-          {{currentDate | date:'fullDate'}}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date:'shortDate'}} :</label>
-          {{currentDate | date:'shortDate'}}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date: 'd/M/y' }} :</label>
-          {{currentDate | date: 'd/M/y' }}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date: 'dd/MM/yyyy' }} :</label>
-          {{currentDate | date: 'dd/MM/yyyy' }}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date: 'dd-MM-yyyy' }} :</label>
-          {{currentDate | date: 'dd-MM-yyyy' }}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date: 'yyyy-MM/dd' }} :</label>
-          {{currentDate | date: 'yyyy-MM/dd' }}
-        </li>
-
-        <br>
-        <li>
-          <label class="bold" ngNonBindable>{{ 1234.56 | currency:'INR' }} :</label>
-          {{ 1234.56 | currency:'INR' }}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{ 1234.56 | currency:'INR':'code' }} :</label>
-          {{ 1234.56 | currency:'INR':'code' }}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{ 1234.56 | currency:'INR':'symbol' }} :</label>
-          {{ 1234.56 | currency:'INR':'symbol' }}
-        </li>
-
-        <br>
-        <li>
-          <label class="bold" ngNonBindable>{{ 3.14159265 | number: '3.1-2' }} :</label>
-          {{ 3.14159265 | number: '3.1-2' }}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{ 3.14159265 | number: '1.4-4' }} :</label>
-          {{ 3.14159265 | number: '1.4-4' }}
-        </li>
-
-        <br>
-        <li>
-          <label class="bold" ngNonBindable>{{ 0.123456 | percent }} :</label>
-          {{ 0.123456 | percent }}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{ 0.123456 | percent: '2.1-2' }} :</label>
-          {{ 0.123456 | percent: '2.1-2' }}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{ 0.123456 | percent : "10.4-4" }} :</label>
-          {{ 0.123456 | percent : "10.4-4" }}
-        </li>
-
-        <br>
-        <li>
-          <label class="bold" ngNonBindable>{{ [1,2,3,4,5,6] | slice:1:3 }} :</label>
-          {{ [1,2,3,4,5,6] | slice:1:3 }}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{ [1,2,3,4,5,6] | slice:2 }} :</label>
-          {{ [1,2,3,4,5,6] | slice:2 }}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{ [1,2,3,4,5,6] | slice:2:-1 }} :</label>
-          {{ [1,2,3,4,5,6] | slice:2:-1 }}
-        </li>
-        <br>
-        <label class="bold" ngNonBindable>Example of pipe on ngFor:</label>
-        <ul>
-          <li *ngFor="let v of [1,2,3,4,5,6] | slice:2:-1">
-            {{v}}
-          </li>
-        </ul>
-
-      </ul>
-
-      <hr>
-      <h3>Chaining multiple Pipes</h3>
-      <ul>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date:'fullDate'}} :</label>
-          {{currentDate | date:'fullDate'}}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date:'fullDate' | uppercase}} :</label>
-          {{currentDate | date:'fullDate' | uppercase}}
-        </li>
-        <li>
-          <label class="bold" ngNonBindable>{{currentDate | date:'fullDate' | lowercase}} :</label>
-          {{currentDate | date:'fullDate' | lowercase}}
-        </li>
-      </ul>
-
+          <!-- ngFor with Pipe Example Section -->
+          <div class="card mb-4">
+            <div class="card-header bg-light d-flex align-items-center">
+              <i class="bi bi-list-ul me-2 text-primary"></i>
+              <h3 class="h5 mb-0">ngFor with Pipe Example</h3>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <label class="fw-bold text-muted" ngNonBindable>Example of pipe on ngFor:</label>
+                <ul class="list-group mt-2">
+                  <li class="list-group-item" *ngFor="let value of [1,2,3,4,5,6] | slice:2:-1">
+                    {{value}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

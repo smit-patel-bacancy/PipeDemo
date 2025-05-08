@@ -1,29 +1,102 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h2>Custom Pipe in Angular</h2>
-            <hr>
-            <h3>Filter Pipe</h3>
-
-            <hr>
-            Name : <input type="text" name="name" id="name" [(ngModel)]="name">
-            <br>
-            Type : <input type="text" name="type" id="type" [(ngModel)]="type">
-            <br>
-            <button class="btn btn-primary" (click)="onAddData()">Add into Array</button>
-
-            <hr>
-            <h4>Filtered List</h4>
-            <input type="text" name="filterType" id="filterType" [(ngModel)]="filterType">
-            <ul *ngFor="let data of arrayData | filter:filterType:'type' ">
-                <li>{{data.name}} --- {{data.type}}</li>
-            </ul>
-
-            <hr>
-            <h4>Original List</h4>
-            <ul *ngFor="let data of arrayData">
-                <li>{{data.name}} --- {{data.type}}</li>
-            </ul>
+<div class="container py-4 animate-fade-in">
+  <div class="row">
+    <div class="col-12">
+      <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+          <h2 class="h4 mb-0">Custom Pipe in Angular</h2>
         </div>
+        <div class="card-body">
+          <!-- Input Form -->
+          <div class="card mb-4">
+            <div class="card-header bg-light d-flex align-items-center">
+              <i class="bi bi-plus-circle me-2 text-primary"></i>
+              <h3 class="h5 mb-0">Add New Item</h3>
+            </div>
+            <div class="card-body">
+              <form class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" placeholder="Enter name">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="type" class="form-label">Type</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-tag"></i></span>
+                    <input type="text" class="form-control" id="type" [(ngModel)]="type" name="type" placeholder="Enter type">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="button" class="btn btn-primary" (click)="onAddData()">
+                    <i class="bi bi-plus-circle me-2"></i>Add to Array
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Filtered List -->
+          <div class="card mb-4">
+            <div class="card-header bg-light d-flex align-items-center">
+              <i class="bi bi-funnel me-2 text-primary"></i>
+              <h3 class="h5 mb-0">Filtered List</h3>
+            </div>
+            <div class="card-body">
+              <div class="mb-3">
+                <label for="filterType" class="form-label">Filter by Type</label>
+                <div class="input-group">
+                  <span class="input-group-text"><i class="bi bi-search"></i></span>
+                  <input type="text" class="form-control" id="filterType" [(ngModel)]="filterType" name="filterType" placeholder="Enter type to filter">
+                </div>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead class="table-light">
+                    <tr>
+                      <th><i class="bi bi-person me-2"></i>Name</th>
+                      <th><i class="bi bi-tag me-2"></i>Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of arrayData | filter:filterType:'type'" class="animate-fade-in">
+                      <td class="fw-medium">{{data.name}}</td>
+                      <td><span class="badge bg-primary">{{data.type}}</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Original List -->
+          <div class="card">
+            <div class="card-header bg-light d-flex align-items-center">
+              <i class="bi bi-list-ul me-2 text-primary"></i>
+              <h3 class="h5 mb-0">Original List</h3>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead class="table-light">
+                    <tr>
+                      <th><i class="bi bi-person me-2"></i>Name</th>
+                      <th><i class="bi bi-tag me-2"></i>Type</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of arrayData" class="animate-fade-in">
+                      <td class="fw-medium">{{data.name}}</td>
+                      <td><span class="badge bg-primary">{{data.type}}</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
