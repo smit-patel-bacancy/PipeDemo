@@ -10,6 +10,8 @@ import { BuiltInPipesDemoComponent } from './built-in-pipes-demo/built-in-pipes-
 import { CustomPipeDemoComponent } from './custom-pipe-demo/custom-pipe-demo.component';
 
 import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
+import { SeparatePipe } from './pipes/separate.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FilterPipe } from './pipes/filter.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SortPipe,
+    SeparatePipe
   ],
   providers: [],
   bootstrap: [AppComponent]
