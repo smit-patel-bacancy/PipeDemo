@@ -112,6 +112,9 @@ body {
   background: var(--primary-gradient) !important;
   color: white !important;
   border-radius: 8px;
+  width: fit-content;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 // Custom Scrollbar
