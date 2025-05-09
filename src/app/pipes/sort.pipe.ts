@@ -7,7 +7,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SortPipe implements PipeTransform {
   transform(value: any[], property: string): any[] {
-    console.warn('Impure Pipe Called with value :', value, 'and property :', property);
+    console.warn('Impure Pipe Called');
+    // console.warn('Impure Pipe Called with value :', value, 'and property :', property);
     if (!value || !property) {
       return value;
     }
