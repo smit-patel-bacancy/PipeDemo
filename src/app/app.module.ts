@@ -18,8 +18,8 @@ import { SeparatePipe } from './pipes/separate.pipe';
     AppComponent,
     BuiltInPipesDemoComponent,
     CustomPipeDemoComponent,
-    FilterPipe,
     AsyncPipeDemoComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

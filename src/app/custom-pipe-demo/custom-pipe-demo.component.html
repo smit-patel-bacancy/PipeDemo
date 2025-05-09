@@ -85,6 +85,32 @@
                   </div>
                 </div>
               </div>
+
+              <!-- All Items List -->
+              <div class="card mb-4">
+                <div class="card-header bg-light d-flex align-items-center">
+                  <i class="bi bi-list-ul me-2 text-primary"></i>
+                  <h4 class="h6 mb-0">All Items</h4>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead class="table-light">
+                        <tr>
+                          <th><i class="bi bi-person me-2"></i>Name</th>
+                          <th><i class="bi bi-tag me-2"></i>Type</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of arrayData" class="animate-fade-in">
+                          <td class="fw-medium">{{data.name}}</td>
+                          <td><span class="badge bg-primary">{{data.type}}</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

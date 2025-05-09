@@ -7,6 +7,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SeparatePipe implements PipeTransform {
 
   transform(value: string, separator: string = '-', skipSpaces: boolean = false): string {
+    console.warn('Separate Pipe Called');
+
     if (!value) return '';
 
     // Handle spaces first
